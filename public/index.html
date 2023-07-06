@@ -34,6 +34,15 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
     </script>
+    <script>
+      const db = firebase.firestore();
+      db.collection('product').get().then((snapshot)=>{
+        console.log(snapshot);
+        snapshot.array.forEach(element => {
+          console.log(element.data());
+        });
+      });
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
